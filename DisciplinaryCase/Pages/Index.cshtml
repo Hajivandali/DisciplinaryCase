@@ -1,10 +1,17 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "صفحه اصلی";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<div class="col-4 mb-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@*first name + Last name *@</h5>
+                <p class="card-title">@*classId*@</p>
+                <p class="card-text">
+                    @*DisciplineDescripstion*@
+                </p>
+                <a class="btn btn-danger" asp-page-handler="Delete" asp-route-id="@**@">حذف</a>
+            </div>
+        </div>
+    </div>
