@@ -1,9 +1,11 @@
-﻿namespace DisciplinaryCase.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DisciplinaryCase.Models
 {
     public class Discipline
     {
-      
-        public int id { get; set; }
+        [Key]
+        public long id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string ClassId { get; set; }

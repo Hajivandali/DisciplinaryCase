@@ -1,10 +1,18 @@
-var builder = WebApplication.CreateBuilder(args);
+using DisciplinaryCase;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
+builder.Services.AddDbContext<DisciplineContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("App"));
+    
+});
+ 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -14,6 +22,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
 app.UseStaticFiles();
 
 app.UseRouting();
