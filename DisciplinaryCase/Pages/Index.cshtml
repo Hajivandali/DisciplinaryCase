@@ -3,15 +3,20 @@
 @{
     ViewData["Title"] = "صفحه اصلی";
 }
-<div class="col-4 mb-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">@*first name + Last name *@</h5>
-                <p class="card-title">@*classId*@</p>
-                <p class="card-text">
-                    @*DisciplineDescripstion*@
-                </p>
-                <a class="btn btn-danger" asp-page-handler="Delete" asp-route-id="@**@">حذف</a>
-            </div>
+<div class="row">
+    <div class="col-md-12 mainheader">
+        <div class="col-md-3">
+            <a href="/StudentSection" class="btn btn-info">لیست دانش‌آموزان</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/ClassroomSection" class="btn btn-info">لیست کلاس‌ها</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/DisciplineSection" class="btn btn-info">ثبت موارد انظباطی</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/DisciplineCategorySection" class="btn btn-info">دسته بندی موارد انظباطی</a>
         </div>
     </div>
+
+</div>

@@ -2,26 +2,29 @@ using DisciplinaryCase;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-// Add services to the container.
+
 builder.Services.AddRazorPages();
-
-var app = builder.Build();
-
 builder.Services.AddDbContext<DisciplineContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("App"));
-    
 });
- 
-// Configure the HTTP request pipeline.
+
+
+var app = builder.Build();
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<DisciplineContext>();
+    context.Database.EnsureCreated();
+}
 
 
 app.UseStaticFiles();

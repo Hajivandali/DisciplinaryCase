@@ -8,11 +8,17 @@
     font-weight: normal;
     font-style: normal;
 }
-
-body{
+* {
+    direction: rtl !important;
     font-family: IranSans !important;
+    text-decoration: none !important; 
 }
-
+.mainheader{
+    display:contents !important;
+}
+.pb-3{
+    margin-top:5em;
+}
 .dir-rtl {
     direction: rtl;
     text-align: right;

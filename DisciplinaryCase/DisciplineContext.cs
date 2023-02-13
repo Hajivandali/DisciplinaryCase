@@ -1,10 +1,15 @@
-﻿using DisciplinaryCase.Mapping;
+﻿using DisciplinaryCase.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DisciplinaryCase
 {
-    public class DisciplineContext:DbContext
+    public class DisciplineContext : DbContext
     {
+        public DbSet<Discipline> Disciplines { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Classroom> Classrooms { get; set; }
+        public DbSet<DisciplineCategory> DisciplineCategories { get; set; }
+
         public DisciplineContext(DbContextOptions<DisciplineContext> options) : base(options)
         {
 
@@ -12,9 +17,7 @@ namespace DisciplinaryCase
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new DisciplineMapping());
             base.OnModelCreating(modelBuilder);
         }
-
     }
 }
