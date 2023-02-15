@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DisciplinaryCase.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using DisciplinaryCase;
-using DisciplinaryCase.Models;
 
 namespace DisciplinaryCase.Pages.DisciplineCategorySection
 {
@@ -20,7 +15,7 @@ namespace DisciplinaryCase.Pages.DisciplineCategorySection
         }
 
         [BindProperty]
-      public DisciplineCategory DisciplineCategory { get; set; }
+        public DisciplineCategory DisciplineCategory { get; set; }
 
         public async Task<IActionResult> OnGetAsync(long? id)
         {
@@ -35,7 +30,7 @@ namespace DisciplinaryCase.Pages.DisciplineCategorySection
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 DisciplineCategory = disciplinecategory;
             }

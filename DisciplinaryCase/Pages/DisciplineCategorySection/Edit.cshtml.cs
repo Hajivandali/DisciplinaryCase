@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DisciplinaryCase.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using DisciplinaryCase;
-using DisciplinaryCase.Models;
 
 namespace DisciplinaryCase.Pages.DisciplineCategorySection
 {
@@ -30,7 +24,7 @@ namespace DisciplinaryCase.Pages.DisciplineCategorySection
                 return NotFound();
             }
 
-            var disciplinecategory =  await _context.DisciplineCategories.FirstOrDefaultAsync(m => m.ID == id);
+            var disciplinecategory = await _context.DisciplineCategories.FirstOrDefaultAsync(m => m.ID == id);
             if (disciplinecategory == null)
             {
                 return NotFound();
@@ -71,7 +65,7 @@ namespace DisciplinaryCase.Pages.DisciplineCategorySection
 
         private bool DisciplineCategoryExists(long id)
         {
-          return _context.DisciplineCategories.Any(e => e.ID == id);
+            return _context.DisciplineCategories.Any(e => e.ID == id);
         }
     }
 }

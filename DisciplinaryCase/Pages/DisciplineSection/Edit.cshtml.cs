@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DisciplinaryCase.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using DisciplinaryCase;
-using DisciplinaryCase.Models;
 
 namespace DisciplinaryCase.Pages.DisciplineSection
 {
@@ -30,14 +25,14 @@ namespace DisciplinaryCase.Pages.DisciplineSection
                 return NotFound();
             }
 
-            var discipline =  await _context.Disciplines.FirstOrDefaultAsync(m => m.Id == id);
+            var discipline = await _context.Disciplines.FirstOrDefaultAsync(m => m.Id == id);
             if (discipline == null)
             {
                 return NotFound();
             }
             Discipline = discipline;
-           ViewData["DisciplineCategoryId"] = new SelectList(_context.DisciplineCategories, "ID", "Name");
-           ViewData["StudentId"] = new SelectList(_context.Students, "Id", "FirstName");
+            ViewData["DisciplineCategoryId"] = new SelectList(_context.DisciplineCategories, "ID", "Name");
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "FirstName");
             return Page();
         }
 
@@ -73,7 +68,7 @@ namespace DisciplinaryCase.Pages.DisciplineSection
 
         private bool DisciplineExists(long id)
         {
-          return _context.Disciplines.Any(e => e.Id == id);
+            return _context.Disciplines.Any(e => e.Id == id);
         }
     }
 }

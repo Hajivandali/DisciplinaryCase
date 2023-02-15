@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using DisciplinaryCase.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using DisciplinaryCase;
-using DisciplinaryCase.Models;
 
 namespace DisciplinaryCase.Pages.DisciplineCategorySection
 {
@@ -19,7 +13,7 @@ namespace DisciplinaryCase.Pages.DisciplineCategorySection
             _context = context;
         }
 
-        public IList<DisciplineCategory> DisciplineCategory { get;set; } = default!;
+        public IList<DisciplineCategory> DisciplineCategory { get; set; } = default!;
 
         public async Task OnGetAsync()
         {

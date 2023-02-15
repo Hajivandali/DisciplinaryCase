@@ -28,22 +28,19 @@ namespace DisciplinaryCase.Pages.StudentSection
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            var isExsists = await _context.Students.AnyAsync(s => s.MeliCode == Student.MeliCode);
+            if (isExsists)
             {
-                return Page();
+                return RedirectToPage("./Index");
+            }
+            else
+            {
+                _context.Students.Add(Student);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
 
-            //var isUnique = await _context.Students.AnyAsync(s => s.MeliCode == Student.MeliCode);
-            //if (!isUnique)
-            //{
-            //    return Page();
-            //}
-
-
-            _context.Students.Add(Student);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            return RedirectToPage();
         }
     }
 }

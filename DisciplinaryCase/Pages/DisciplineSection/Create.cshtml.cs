@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DisciplinaryCase.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using DisciplinaryCase;
-using DisciplinaryCase.Models;
 
 namespace DisciplinaryCase.Pages.DisciplineSection
 {
@@ -21,23 +16,18 @@ namespace DisciplinaryCase.Pages.DisciplineSection
 
         public IActionResult OnGet()
         {
-        ViewData["DisciplineCategoryId"] = new SelectList(_context.DisciplineCategories, "ID", "Name");
-        ViewData["StudentId"] = new SelectList(_context.Students, "Id", "FirstName");
+            ViewData["DisciplineCategoryId"] = new SelectList(_context.DisciplineCategories, "ID", "Name");
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "FirstName");
             return Page();
         }
 
         [BindProperty]
         public Discipline Discipline { get; set; }
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
             _context.Disciplines.Add(Discipline);
             await _context.SaveChangesAsync();
 
