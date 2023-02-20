@@ -5,25 +5,27 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>لیست دانش آموزان</h1>
+<h2>لیست دانش آموزان</h2>
+<br />
 
-<p>
-    <a asp-page="Create">اضافه کردن دانش آموز</a>
-</p>
-<table class="table">
+    <button asp-page="Create" type="button" class="btn btn-warning">اضافه کردن دانش آموز</button>
+<br />
+<br />
+
+<table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Student[0].FirstName)
+                نام     
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Student[0].LastName)
+                نام خانوادگی
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Student[0].MeliCode)
+                کد ملی
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Student[0].Classroom)
+                کلاس
             </th>
             <th></th>
         </tr>

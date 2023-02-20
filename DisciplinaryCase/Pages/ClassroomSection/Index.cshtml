@@ -6,15 +6,16 @@
 }
 
 <h1>لیست کلاس ها</h1>
+<br />
+<br />
+     <button asp-page="Create" type="button" class="btn btn-warning">ایجاد کلاس</button>
+<br />
 
-<p>
-    <a asp-page="Create">ساخت کلاس</a>
-</p>
-<table class="table">
+<table class="table table-bordered table-striped table-hover">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Classroom[0].Name)
+                کلاس
             </th>
             <th></th>
         </tr>
